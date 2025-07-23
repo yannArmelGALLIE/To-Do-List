@@ -16,7 +16,7 @@ const TacheSchema = new mongoose.Schema(
     },
     priorite: {
       type: String,
-      enum: ["faible", "moyenne", "haute"],
+      enum: ["faible", "moyenne", "élévée"],
       default: "faible",
     },
     deadline: {

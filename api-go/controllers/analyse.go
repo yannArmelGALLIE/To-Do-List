@@ -5,10 +5,11 @@ import (
 	"net/http"
 	"sort"
 	"todoapi/models"
+	"fmt"
 )
 
 var odrePriorite = map[string]int{
-	"haute": 3,
+	"élevée": 3,
 	"moyenne": 2,
 	"faible": 1,
 }
@@ -20,6 +21,8 @@ func AnalyseTaches (w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Tâches invalides", http.StatusBadRequest)
 		return
 	}
+
+	fmt.Println("tâches réçues : ", taches);
 
 	sort.Slice(taches, func(i,j int) bool {
 		pi := odrePriorite[taches[i].Priorite]
