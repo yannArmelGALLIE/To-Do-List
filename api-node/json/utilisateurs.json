@@ -1,0 +1,222 @@
+[
+  {
+    "_id": {
+      "$oid": "af77e52c45e44a3995e3b81d"
+    },
+    "nom": "GALLIE",
+    "prenom": "Yann",
+    "email": "yann@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "52e7b746eb19480d812896e3"
+    },
+    "nom": "TRAORE",
+    "prenom": "Sarah",
+    "email": "sarah@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "06cffe0906834324abaa160e"
+    },
+    "nom": "KONE",
+    "prenom": "Ali",
+    "email": "ali@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "59e584a8f87d49209093d371"
+    },
+    "nom": "DIALLO",
+    "prenom": "Fatou",
+    "email": "fatou@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "ea782ea70a244919a8bf26db"
+    },
+    "nom": "DOE",
+    "prenom": "John",
+    "email": "john@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "736768c92f0d49c5a0abc6ac"
+    },
+    "nom": "SOW",
+    "prenom": "Awa",
+    "email": "awa@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "0d5aad8520b04324be95a7af"
+    },
+    "nom": "BEN",
+    "prenom": "Mehdi",
+    "email": "mehdi@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "633d002705264a8c9541b676"
+    },
+    "nom": "DUPONT",
+    "prenom": "Lucie",
+    "email": "lucie@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "9d9ca089cbf245c5a9971e0e"
+    },
+    "nom": "KOFFI",
+    "prenom": "Oscar",
+    "email": "oscar@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "66e01b8aad4344c1b642bf04"
+    },
+    "nom": "SARR",
+    "prenom": "Noémie",
+    "email": "noémie@example.com",
+    "mot_de_passe": "$2b$10$qwTKuysVZDp7nIjeMsqXaeTvXV1R0CPQZo.GXeClgb4wsz5ulaSRK",
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1753142400000"
+      }
+    },
+    "__v": {
+      "$numberInt": "0"
+    }
+  }
+]

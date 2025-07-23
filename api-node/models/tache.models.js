@@ -14,6 +14,15 @@ const TacheSchema = new mongoose.Schema(
       enum: ["en attente", "en cours", "terminé"],
       default: "en attente",
     },
+    priorite: {
+      type: String,
+      enum: ["faible", "moyenne", "haute"],
+      default: "faible",
+    },
+    deadline: {
+      type: Date,
+      required: true,
+    },
     utilisateur: {
       type: mongoose.Schema.ObjectId,
       ref: "Utilisateur",

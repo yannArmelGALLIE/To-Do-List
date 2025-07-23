@@ -1,12 +1,12 @@
 import express from "express";
-import {register, login, logout} from "../controllers/auth.controller.js";
+import { getAllUtilisateurs, utilisateurInfo, updateUtilisateur, deleteUtilisateur, findAllTachesForUtilisateur } from "../controllers/utilisateur.controller.js";
 
 const router = express.Router();
 
-// auth
-router.post("/register", register);
-router.post("/login", login);
-router.get("/logout", logout)
-
+router.get("/", getAllUtilisateurs);
+router.post("/:id", utilisateurInfo);
+router.put("/:id", updateUtilisateur);
+router.delete("/:id", deleteUtilisateur);
+router.get("/:id/taches", findAllTachesForUtilisateur);
 
 export default router;

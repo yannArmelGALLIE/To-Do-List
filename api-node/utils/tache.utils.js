@@ -3,6 +3,8 @@ export const tacheErrors = (err) => {
         titre: "",
         description: "",
         status: "",
+        priorite: "",
+        deadline: "",
         utilisateur: ""
     };
 
@@ -11,6 +13,9 @@ export const tacheErrors = (err) => {
             if (err.errors[key].kind === "required") {
                 if (key === "titre") {
                     errors.titre = "Le titre est requis"
+                }
+                if (key === "deadline") {
+                    errors.deadline = "LA date de fin de la tâche est requis";
                 }
             };
 

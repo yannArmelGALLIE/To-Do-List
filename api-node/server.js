@@ -4,8 +4,9 @@ import dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-import utilisateurRoutes from "./routes/utilisateur.routes.js"
+import authRoutes from "./routes/auth.routes.js"
 import tacheRoutes from "./routes/tache.routes.js";
+import utilisateurRoutes from "./routes/utilisateur.routes.js";
 import { checkUtilisateur, requireAuth } from "./middleware/auth.middleware.js";
 dotenv.config({path: "./config/.env"})
 
@@ -38,8 +39,9 @@ app.get("/jwtid", requireAuth, (req, res) => {
 
 
 // Routes
-app.use("/api/utilisateur", utilisateurRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/tache", tacheRoutes);
+app.use("/api/utilisateur", utilisateurRoutes);
 
 //server
 app.listen(process.env.PORT, () => {

@@ -2,10 +2,10 @@ import TacheModels from "../models/tache.models.js";
 import {tacheErrors}  from "../utils/tache.utils.js";
 
 export const save = async (req, res) => {
-    const { titre, description, status, utilisateur } = req.body;
+    const { titre, description, status, priorite, deadline, utilisateur } = req.body;
 
     try {
-        const tache = await TacheModels.create({ titre, description, status, utilisateur })
+        const tache = await TacheModels.create({ titre, description, status, priorite, deadline, utilisateur })
         res.status(201).json({ tache : tache });
     }
     catch (err) {
@@ -52,4 +52,9 @@ export const deleteTache = async (req, res) => {
         console.log(err);
         res.status(400).json({ message : "Erreur de suppression de la tâche" });
     }
+}
+
+export const getAllTaches = async (req, res) => {
+    const taches = await TacheModels.find();
+    res.status(201).json({ taches });
 }
