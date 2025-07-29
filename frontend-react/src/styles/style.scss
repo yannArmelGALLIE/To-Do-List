@@ -1,0 +1,13 @@
+@use "components" as *;
+@use "./pages/login";
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $couleur-principale;
+}

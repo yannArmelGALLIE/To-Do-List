@@ -1,0 +1,144 @@
+@use "../components" as *;
+
+.login-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 2rem;
+  & h1 {
+    font-size: 3rem;
+    cursor: default;
+  }
+}
+
+.login-content {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  background: $couleur-secondaire;
+  padding: 20px;
+  & > div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    gap: 2rem;
+    & div {
+      padding: 10px 0;
+      font-size: 1.5rem;
+      & h3 {
+        margin: 10px 0;
+      }
+    }
+
+    & form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-size: 1.3rem;
+      & div {
+        position: relative;
+        width: 80%;
+        & input {
+          width: 100%;
+          border: none;
+          outline: none;
+          border-bottom: 2px solid black;
+          background: linear-gradient(to top, lighten($couleur-principale, 20%) 10%, transparent 10%);
+          transition: all 0.3s ease-in-out;
+          padding: 15px 10px 10px 10px;
+          font-size: 1.3rem;
+          &:focus {
+           background: linear-gradient(to top, $couleur-principale 0%, transparent 80%);
+          }
+          &:focus + label,
+          &:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 1rem;
+            color: gray;
+          }
+        }
+        & label {
+          position: absolute;
+          left: 10px;
+          top: 25px;
+          transition: 0.3s ease all;
+          pointer-events: none;
+          color: black;
+        }
+      }
+      & a {
+        font-size: 1rem;
+        align-self: flex-end;
+        padding: 10px;
+        text-decoration: none;
+        color: $text-secondaire;
+        &:hover {
+          color: black;
+        }
+      }
+      & button {
+        width: 60%;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+        align-self: center;
+        border: none;
+        background-color: black;
+        color: white;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.05);
+          background-color: white;
+          color: black;
+          border: 3px black solid;
+        }
+      }
+    }
+  }
+
+  & > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    & div {
+      background: $couleur-principale;
+      width: 5px;
+      height: 215px;
+    }
+  }
+
+  & > div:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    gap: 2rem;
+    & a {
+      display: flex;
+      gap: 1.5rem;
+      padding: 10px;
+      align-items: center;
+      text-decoration: none;
+      color: black;
+      background: $couleur-principale;
+      width: 90%;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    & > a:last-of-type {
+      justify-content: center;
+      text-align: center;
+    }
+    & img {
+      width: 30px;
+    }
+  }
+}
