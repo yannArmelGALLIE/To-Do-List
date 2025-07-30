@@ -69,6 +69,12 @@
           color: black;
         }
       }
+      & div.alert {
+        @include alertStyle($avertissement, 90%)
+      }
+      & div.erreur {
+        @include alertStyle($erreur, 60%)
+      }
       & a {
         font-size: 1rem;
         align-self: flex-end;

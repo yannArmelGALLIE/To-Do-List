@@ -1,0 +1,11 @@
+@mixin alertStyle($color, $width) {
+            background-color: lighten($color: $color, $amount: 35%);
+        color: $color;
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        justify-content: space-around;
+        align-self: center;
+        width: $width;
+        border-radius: 10px;
+}
