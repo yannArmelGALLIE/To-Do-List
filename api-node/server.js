@@ -18,7 +18,7 @@ mongoose
 
 
 const corsOptions = {
-    origin : process.env.CLIENT_URL,
+    origin : `${process.env.CLIENT_URL}`,
     credentials : true,
     'allowedHeaders': ['sessionId', 'content-Type'],
     'exposedHeaders': ['sessionId'],

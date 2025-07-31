@@ -73,7 +73,7 @@
         @include alertStyle($avertissement, 90%)
       }
       & div.erreur {
-        @include alertStyle($erreur, 60%)
+        @include alertStyle($erreur, 65%)
       }
       & a {
         font-size: 1rem;
