@@ -1,0 +1,48 @@
+@use "../components" as *;
+
+.mes-taches {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  & > div:first-of-type {
+    background: $couleur-secondaire;
+    padding: 10px;
+    border-radius: 10px;
+    & form > div:first-of-type {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 10px;
+      & input[type="date"] {
+        height: 45px;
+        border-radius: 5px;
+        padding: 10px;
+        border-color: $couleur-principale;
+      }
+      & button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        height: 45px;
+        border-radius: 10px;
+        border: none;
+        background-color: $bleu-profond;
+        color: white;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:hover {
+            border: 2px solid $bleu-profond;
+            background-color: white;
+            color: $bleu-profond;
+        }
+      }
+    }
+    & form > div:nth-of-type(2) {
+        @include alertStyle($avertissement, 27%);
+        justify-self: center;
+    }
+  }
+}
