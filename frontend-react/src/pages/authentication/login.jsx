@@ -21,6 +21,7 @@ const Login = () => {
           mot_de_passe,
         });
         if (res.data && res.data.success) {
+          window.location = "/todolist/mes-taches";
           setAlert("");
           setErreur("");
         } else {

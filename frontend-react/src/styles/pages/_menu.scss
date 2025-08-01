@@ -1,0 +1,65 @@
+@use "../components" as *;
+
+.menu {
+  width: 100%;
+}
+
+.menu-bar {
+  width: 19%;
+  height: 100vh;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  background: $couleur-secondaire;
+  gap: 2rem;
+  & > div:nth-of-type(2) {
+    margin-top: 5rem;
+    & ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      & li {
+        list-style: none;
+        & a {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          text-decoration: none;
+          font-size: 1.2rem;
+          color: $text-secondaire;
+          padding: 10px;
+          &:hover {
+            color: black;
+          }
+          &.active {
+            background: $lien-couleur;
+            color: black;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+  & > div:nth-of-type(3) {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 2rem;
+    padding: 10px;
+    border: 3px solid $couleur-principale;
+    border-radius: 50px;
+    transition: all 0.1s ease-in-out;
+    &:hover {
+      background: $couleur-principale;
+    }
+    gap: 1rem;
+    & img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    & a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
