@@ -15,7 +15,7 @@ export const tacheErrors = (err) => {
                     errors.titre = "Le titre est requis"
                 }
                 if (key === "deadline") {
-                    errors.deadline = "LA date de fin de la tâche est requis";
+                    errors.deadline = "La date de fin de la tâche est requis";
                 }
             };
 

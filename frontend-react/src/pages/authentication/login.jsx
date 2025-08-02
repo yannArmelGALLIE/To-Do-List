@@ -21,6 +21,7 @@ const Login = () => {
           mot_de_passe,
         });
         if (res.data && res.data.success) {
+          localStorage.setItem("userId", res.data.utilisateur._id)
           window.location = "/todolist/mes-taches";
           setAlert("");
           setErreur("");
@@ -31,14 +32,16 @@ const Login = () => {
       } catch (err) {
         if (err.response && err.response.data && err.response.data.message) {
           setErreur(err.response.data.message);
+          setAlert("")
         } else {
           setErreur("Une erreur est survenue. Veuillez réessayer.");
+          setAlert("");
           console.error("Erreur inconnue :", err);
         }
       }
     } else {
       setAlert("Veuillez remplir tous les champs !");
-      setErreur();
+      setErreur("");
     }
   };
 

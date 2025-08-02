@@ -7,11 +7,12 @@ export const save = async (req, res) => {
     try {
         const tache = await TacheModels.create({ titre, description, status, priorite, deadline, utilisateur })
         res.status(201).json({ tache : tache });
+        console.log(tache);
     }
     catch (err) {
         console.log(err);
         const errors = tacheErrors(err)
-        res.status(200).json({errors});
+        res.status(400).json({errors});
     }
 }
 

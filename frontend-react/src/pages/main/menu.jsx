@@ -32,8 +32,11 @@ const Menu = () => {
           <ul>
             {menuItems.map((item) => (
               <li key={item.id}>
-                <Link className={activePage === item.id ? "active" : ""} to={`/todolist/${item.id}`}>
-                <item.icon  /> {item.label}
+                <Link
+                  className={activePage === item.id ? "active" : ""}
+                  to={`/todolist/${item.id}`}
+                >
+                  <item.icon /> {item.label}
                 </Link>
               </li>
             ))}
