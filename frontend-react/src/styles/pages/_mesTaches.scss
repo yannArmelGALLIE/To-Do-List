@@ -4,7 +4,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
   & > div:first-of-type {
     background: $couleur-secondaire;
     padding: 10px;
@@ -34,23 +34,150 @@
         cursor: pointer;
         transition: all 0.2s ease;
         &:hover {
-            border: 2px solid $bleu-profond;
-            background-color: white;
-            color: $bleu-profond;
+          border: 2px solid $bleu-profond;
+          background-color: white;
+          color: $bleu-profond;
         }
       }
     }
     & form > div.alert {
-        @include alertStyle($avertissement, 27%);
-        justify-self: center;
+      @include alertStyle($avertissement, 27%);
+      justify-self: center;
     }
     & form > div.erreur-1 {
       @include alertStyle($erreur, 17%);
-      justify-self: center
+      justify-self: center;
     }
     & form > div.erreur-2 {
       @include alertStyle($erreur, 30%);
-      justify-self: center
+      justify-self: center;
+    }
+  }
+  & > div:nth-of-type(2) {
+    width: 100%;
+    background-color: $couleur-secondaire;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    gap: 2rem;
+    & > div:first-of-type {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & > div:first-of-type {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        & > p:first-of-type {
+          color: $bleu-profond;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          & > span {
+            color: white;
+            background: $bleu-profond;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+          }
+        }
+        & > p:not(:first-of-type) {
+          color: $text-secondaire;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          & > span {
+            color: white;
+            background: $text-secondaire;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+          }
+        }
+      }
+      & > div:nth-of-type(2) {
+        display: flex;
+        gap: 2rem;
+        & div {
+          padding: 2px;
+          background-color: $couleur-principale;
+          border-radius: 5px;
+          display: flex;
+          & button {
+            padding: 4px;
+            border: none;
+            border-radius: 5px;
+            background: none;
+            cursor: pointer;
+            &.active {
+              background: $bleu-profond;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    & > div:nth-of-type(2) {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 2rem;
+      & > div {
+        border-radius: 20px;
+        padding: 1rem;
+        &.faible {
+background-color: $lien-couleur;
+        }
+        &.moyenne {
+background-color: lighten($color: $avertissement, $amount: 30%);
+        }
+                &.elevee {
+background-color: lighten($color: $erreur, $amount: 30%);
+        }
+        & > div:first-of-type {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          & p {
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+          & div {
+            margin-left: auto;
+            display: flex;
+            gap: 1rem;
+            & button {
+              border: none;
+              background-color: transparent;
+                cursor: pointer;
+              &:first-of-type svg {
+                color: $bleu-profond;
+              }
+              &:nth-of-type(2) svg {
+                color: $erreur;
+              }
+            }
+          }
+        }
+        & > div:nth-of-type(2) {
+          margin: 10px 0px;
+                }
+        & > div:nth-of-type(3) {
+          display: flex;
+          margin: 20px 0px 0px 0px;
+          justify-content: space-between;
+        }
+      }
     }
   }
 }

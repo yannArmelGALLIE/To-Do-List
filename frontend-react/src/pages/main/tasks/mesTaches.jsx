@@ -9,6 +9,7 @@ import AddIcon from "@mui/icons-material/Add";
 import WarningIcon from "@mui/icons-material/Warning";
 import DangerousIcon from "@mui/icons-material/Dangerous";
 import axios from "axios";
+import AfficherTaches from "./widgets/afficherTaches";
 
 const MesTaches = () => {
   const [userId, setUserId] = useState("");
@@ -19,6 +20,63 @@ const MesTaches = () => {
   const [alert, setAlert] = useState("");
   const [erreur1, setErreur1] = useState("");
   const [erreur2, setErreur2] = useState("");
+  const [activeButton1, setActiveButton1] = useState("toutes");
+  const [activeButton2, setActiveButton2] = useState("toutes-les-priorites");
+
+  const button1 = [
+    { id: "toutes", label: "Toutes" },
+    { id: "en-attente", label: "En attente" },
+    { id: "en-cours", label: "En cours" },
+    { id: "terminees", label: "Terminées" },
+  ];
+  const button2 = [
+    { id: "toutes-les-priorites", label: "Toutes les priorités" },
+    { id: "faible", label: "Faible" },
+    { id: "moyenne", label: "Moyenne" },
+    { id: "elevee", label: "Elevée" },
+  ];
+  const taches = [
+    {
+      id: 1,
+      titre: "Code1",
+      description: "Premier Code",
+      status: "En attente",
+      priorite: "Faible",
+      deadline: "15/11/2025",
+    },
+    {
+      id: 2,
+      titre: "Code1",
+      description: "Premier Code",
+      status: "En attente",
+      priorite: "Moyenne",
+      deadline: "15/11/2025",
+    },
+    {
+      id: 3,
+      titre: "Code1",
+      description: "Premier Code",
+      status: "En attente",
+      priorite: "Elevée",
+      deadline: "15/11/2025",
+    },
+    {
+      id: 4,
+      titre: "Code1",
+      description: "Premier Code",
+      status: "En attente",
+      priorite: "Faible",
+      deadline: "15/11/2025",
+    },
+    {
+      id: 5,
+      titre: "Code1",
+      description: "Premier Code",
+      status: "En attente",
+      priorite: "Moyenne",
+      deadline: "15/11/2025",
+    },
+  ];
 
   useEffect(() => {
     const storedUserId = localStorage.getItem("userId");
@@ -68,8 +126,7 @@ const MesTaches = () => {
             if (errors.titre !== "") {
               setErreur1(errors.titre);
               setErreur2("");
-            }
-            else if (errors.deadline !== "") {
+            } else if (errors.deadline !== "") {
               setErreur1("");
               setErreur2(errors.deadline);
             }
@@ -144,9 +201,50 @@ const MesTaches = () => {
           )}
         </form>
       </div>
-      <div></div>
+      <div>
+        <div>
+          <div>
+            <p>
+              Total: <span>6</span>
+            </p>
+            <p>
+              En attente: <span>3</span>
+            </p>
+            <p>
+              En cours: <span>2</span>
+            </p>
+            <p>
+              Terminées: <span>1</span>
+            </p>
+          </div>
+          <div>
+            <div>
+              {button1.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveButton1(item.id)}
+                  className={activeButton1 === item.id ? "active" : ""}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+            <div>
+              {button2.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveButton2(item.id)}
+                  className={activeButton2 === item.id ? "active" : ""}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+        <AfficherTaches taches={taches} />
+      </div>
     </div>
   );
 };
-
 export default MesTaches;
