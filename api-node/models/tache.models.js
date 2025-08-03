@@ -11,7 +11,7 @@ const TacheSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ["en attente", "en cours", "terminé"],
+      enum: ["en attente", "en cours", "terminée"],
       default: "en attente",
     },
     priorite: {

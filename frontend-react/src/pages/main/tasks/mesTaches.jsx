@@ -22,6 +22,7 @@ const MesTaches = () => {
   const [erreur2, setErreur2] = useState("");
   const [activeButton1, setActiveButton1] = useState("toutes");
   const [activeButton2, setActiveButton2] = useState("toutes-les-priorites");
+  const [taches, setTaches] = useState([]);
 
   const button1 = [
     { id: "toutes", label: "Toutes" },
@@ -33,49 +34,7 @@ const MesTaches = () => {
     { id: "toutes-les-priorites", label: "Toutes les priorités" },
     { id: "faible", label: "Faible" },
     { id: "moyenne", label: "Moyenne" },
-    { id: "elevee", label: "Elevée" },
-  ];
-  const taches = [
-    {
-      id: 1,
-      titre: "Code1",
-      description: "Premier Code",
-      status: "En attente",
-      priorite: "Faible",
-      deadline: "15/11/2025",
-    },
-    {
-      id: 2,
-      titre: "Code1",
-      description: "Premier Code",
-      status: "En attente",
-      priorite: "Moyenne",
-      deadline: "15/11/2025",
-    },
-    {
-      id: 3,
-      titre: "Code1",
-      description: "Premier Code",
-      status: "En attente",
-      priorite: "Elevée",
-      deadline: "15/11/2025",
-    },
-    {
-      id: 4,
-      titre: "Code1",
-      description: "Premier Code",
-      status: "En attente",
-      priorite: "Faible",
-      deadline: "15/11/2025",
-    },
-    {
-      id: 5,
-      titre: "Code1",
-      description: "Premier Code",
-      status: "En attente",
-      priorite: "Moyenne",
-      deadline: "15/11/2025",
-    },
+    { id: "élevée", label: "Elevée" },
   ];
 
   useEffect(() => {
@@ -84,10 +43,24 @@ const MesTaches = () => {
     console.log("ID user : ", storedUserId);
   }, []);
 
+  const findTasks = async () => {
+    const res = await axios.get(`http://localhost:3000/api/utilisateur/${userId}/taches`)
+    if (res) {
+      setTaches(res.data);
+      console.log(res.data);
+    }
+  }
+
+  useEffect(() => {
+    if (userId) {
+      findTasks();
+    }
+  }, [userId])
+
   const handleForm = async (e) => {
     e.preventDefault();
 
-    if (titre === "" && deadline == "") {
+    if (titre === "" && deadline === "") {
       setAlert("Veuillez remplir tous les champs !");
     } else {
       if (priorite) {
@@ -97,10 +70,11 @@ const MesTaches = () => {
             description,
             priorite,
             deadline,
-            userId,
+            utilisateur: userId,
           });
           if (res.data) {
             console.log(res.data);
+            await findTasks();
           } else {
             console.log("erreur");
           }
@@ -113,10 +87,11 @@ const MesTaches = () => {
             titre,
             description,
             deadline,
-            userId,
+            utilisateur: userId,
           });
           if (res.data) {
             console.log(res.data);
+            await findTasks();
           } else {
             console.log("erreur");
           }
@@ -135,6 +110,42 @@ const MesTaches = () => {
       }
     }
   };
+
+  const [filteredTasks, setFilteredTasks] = useState(taches);
+  const statusMapping = {
+    "en-attente": "en attente",
+    "en-cours": "en cours",
+    "terminees": "terminée"
+  }
+
+  const applyFilters = () => {
+  let result = [...taches];
+
+  if (activeButton1 !== "toutes") {
+    const status = statusMapping[activeButton1];
+    result = result.filter((t) => t.Status === status);
+  }
+
+  if (activeButton2 !== "toutes-les-priorites") {
+    result = result.filter((t) => t.Priorite === activeButton2);
+  }
+
+  setFilteredTasks(result);
+};
+
+const handleFilter1 = (filter) => {
+  setActiveButton1(filter);
+};
+
+const handleFilter2 = (filter) => {
+  setActiveButton2(filter);
+};
+
+useEffect(() => {
+  applyFilters();
+}, [activeButton1, activeButton2, taches]);
+
+
 
   return (
     <div className="mes-taches">
@@ -205,16 +216,16 @@ const MesTaches = () => {
         <div>
           <div>
             <p>
-              Total: <span>6</span>
+              Total: <span>{taches.length}</span>
             </p>
             <p>
-              En attente: <span>3</span>
+              En attente: <span>{taches.filter((t) => t.Status === "en attente").length}</span>
             </p>
             <p>
-              En cours: <span>2</span>
+              En cours: <span>{taches.filter((t) => t.Status === "en cours").length}</span>
             </p>
             <p>
-              Terminées: <span>1</span>
+              Terminées: <span>{taches.filter((t) => t.Status === "terminée").length}</span>
             </p>
           </div>
           <div>
@@ -222,7 +233,10 @@ const MesTaches = () => {
               {button1.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => setActiveButton1(item.id)}
+                  onClick={() => {
+                    setActiveButton1(item.id);
+                    handleFilter1(item.id);
+                  }}
                   className={activeButton1 === item.id ? "active" : ""}
                 >
                   {item.label}
@@ -233,7 +247,10 @@ const MesTaches = () => {
               {button2.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => setActiveButton2(item.id)}
+                  onClick={() => {
+                    setActiveButton2(item.id);
+                    handleFilter2(item.id);
+                  }}
                   className={activeButton2 === item.id ? "active" : ""}
                 >
                   {item.label}
@@ -242,7 +259,7 @@ const MesTaches = () => {
             </div>
           </div>
         </div>
-        <AfficherTaches taches={taches} />
+        <AfficherTaches taches={filteredTasks} setTaches={setTaches} />
       </div>
     </div>
   );

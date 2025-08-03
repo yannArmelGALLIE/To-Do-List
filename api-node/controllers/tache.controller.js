@@ -47,11 +47,11 @@ export const deleteTache = async (req, res) => {
             res.status(404).json({ message : "Tache non trouvée" });
         };
 
-        res.status(201).json({ message : "Tâche supprimée" });
+        res.status(200).json({ message : "Tâche supprimée"});
     }
     catch (err) {
         console.log(err);
-        res.status(400).json({ message : "Erreur de suppression de la tâche" });
+        res.status(500).json({ message : "Erreur de suppression de la tâche" });
     }
 }
 

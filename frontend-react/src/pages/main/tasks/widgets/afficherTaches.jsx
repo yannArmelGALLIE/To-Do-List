@@ -1,82 +1,97 @@
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import axios from "axios";
 
-const AfficherTaches = ({ taches }) => {
+const AfficherTaches = ({ taches, setTaches }) => {
+  
+  const deleteTasks = async (tache) => {
+    try {
+          const res = await axios.delete(`http://localhost:3000/api/tache/${tache._id}`);
+    if (res) {
+      console.log("Message supprimé");
+      setTaches((prev) => prev.filter((t) => t._id !== tache._id));
+    }
+    }
+    catch (err) {
+      console.error("Erreur lors de la suppression :", err.response?.data || err.message)
+    }
+  }
+
   return (
     <div>
       {taches.map((tache) => {
-        if (tache.priorite === "Faible") {
+        if (tache.Priorite === "faible") {
           return (
-            <div key={tache.id} className="faible">
+            <div key={tache._id} className="faible">
               <div>
                 <input type="checkbox" name="" id="" />
-                <p>{tache.titre}</p>
+                <p>{tache.Titre}</p>
                 <div>
                   <button>
                     <EditIcon />
                   </button>
-                  <button>
+                  <button onClick={() => deleteTasks(tache)}>
                     <DeleteIcon />
                   </button>
                 </div>
               </div>
               <div>
-                <p>{tache.description}</p>
+                <p>{tache.Description}</p>
               </div>
               <div>
-                <p>{tache.status}</p>
-                <p>{tache.priorite}</p>
-                <p>{tache.deadline}</p>
+                <p>{tache.Status}</p>
+                <p>{tache.Priorite}</p>
+                <p>{new Date(tache.Deadline).toISOString().split("T")[0]}</p>
               </div>
             </div>
           );
-        } else if (tache.priorite === "Moyenne") {
+        } else if (tache.Priorite === "moyenne") {
           return (
-            <div key={tache.id} className="moyenne">
+            <div key={tache._id} className="moyenne">
               <div>
                 <input type="checkbox" name="" id="" />
-                <p>{tache.titre}</p>
+                <p>{tache.Titre}</p>
                 <div>
                   <button>
                     <EditIcon />
                   </button>
-                  <button>
+                  <button onClick={() => deleteTasks(tache)}>
                     <DeleteIcon />
                   </button>
                 </div>
               </div>
               <div>
-                <p>{tache.description}</p>
+                <p>{tache.Description}</p>
               </div>
               <div>
-                <p>{tache.status}</p>
-                <p>{tache.priorite}</p>
-                <p>{tache.deadline}</p>
+                <p>{tache.Status}</p>
+                <p>{tache.Priorite}</p>
+                <p>{new Date(tache.Deadline).toISOString().split("T")[0]}</p>
               </div>
             </div>
           );
         } else {
           return (
-            <div key={tache.id} className="elevee">
+            <div key={tache._id} className="elevee">
               <div>
                 <input type="checkbox" name="" id="" />
-                <p>{tache.titre}</p>
+                <p>{tache.Titre}</p>
                 <div>
                   <button>
                     <EditIcon />
                   </button>
-                  <button>
+                  <button onClick={() => deleteTasks(tache)}>
                     <DeleteIcon />
                   </button>
                 </div>
               </div>
               <div>
-                <p>{tache.description}</p>
+                <p>{tache.Description}</p>
               </div>
               <div>
-                <p>{tache.status}</p>
-                <p>{tache.priorite}</p>
-                <p>{tache.deadline}</p>
+                <p>{tache.Status}</p>
+                <p>{tache.Priorite}</p>
+                <p>{new Date(tache.Deadline).toISOString().split("T")[0]}</p>
               </div>
             </div>
           );
