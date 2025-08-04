@@ -234,7 +234,6 @@ useEffect(() => {
                 <button
                   key={item.id}
                   onClick={() => {
-                    setActiveButton1(item.id);
                     handleFilter1(item.id);
                   }}
                   className={activeButton1 === item.id ? "active" : ""}
@@ -248,7 +247,6 @@ useEffect(() => {
                 <button
                   key={item.id}
                   onClick={() => {
-                    setActiveButton2(item.id);
                     handleFilter2(item.id);
                   }}
                   className={activeButton2 === item.id ? "active" : ""}

@@ -29,11 +29,12 @@ export const updateTache = async (req, res) => {
             res.status(404).json({ message : "Tâche non trouvée" });
         };
 
-        res.status(201).json({ message : "Tâche mise à jour", tache });
+        res.status(200).json({ message : "Tâche mise à jour", tache });
+        console.log({ message : "Tâche mise à jour", tache })
     }
     catch (err) {
         console.log(err);
-        res.satus(400).json({ message : "Erreur de mise à jour", err });
+        res.satus(500).json({ message : "Erreur de mise à jour", err });
     }
 }
 
